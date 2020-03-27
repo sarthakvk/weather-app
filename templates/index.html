@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Weather App</title>
+    <meta name="description" content="Weather application devloped on flask using Darksky API and geopy API.">
+    <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="static/css/styles.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+        <div class="container"><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button><a class="navbar-brand logo" href="#">Weather App</a>
+            <div class="collapse navbar-collapse"
+                id="navcol-1">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="http://svkumar.me">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {% for msg in get_flashed_messages() %}
+    <!-- <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <button type="button" class="fade close" data-dismiss = 'alert' area-lable = 'Close'>
+            <span aria-hidden = "true">&times;</span>
+        </button> -->
+        {{msg}}
+    </div>
+    {% endfor %}
+    <main class="page contact-us-page">
+        <section class="clean-block clean-form dark">
+            <div class="container">
+                <div class="block-heading"><h2 class="text-info">Enter Your Location</h2>
+                    <p>Enter your address so that we can find your latitude and longitude.</p>
+                </div>
+                <form method="POST">
+                    {{ form.hidden_tag() }}
+                    <div class="form-group">{{ form.location.label }} {{ form.location() }}</div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">{{ form.submit() }}</div>
+                        </div>
+
+                    </div>
+
+                </form>
+                {%if location  %}
+                <div class="row">
+                    <div class="col-sm-3">
+
+                    </div>
+                    <div class="col-sm-4">
+                        <ul>
+
+
+                    <li>    <p>Location: {{ location }}<br></li>
+                        <li><p>Overall Weather: {{forcast['Overall Weather']}}<br></p></li>
+                        <li><p>Current Temprature: {{forcast['Current Temperature in C']}}&#8451;</p>
+                            <li><p>Current Temperature in F: {{forcast['Current Temperature in F']}}&#8457;</p></li>
+
+
+                        <li><p>Humidity: {{forcast["Current Humidity"]}}</p></li>
+                        <li><p>Wind Speed: {{forcast['Current Wind Speed']}}</p></li>
+                        <li><p>Wind Pressure: {{forcast['Current Wind Pressure']}}</p></li>
+                        {%endif%}
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+    </main>
+    <footer class="page-footer dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3 col-xl-10 offset-xl-0">
+                    <h5>About us</h5>
+                    <ul>
+                        <li><a href="http://svkumar.me">Company Information</a></li>
+                        <li><a href="http://www.svkumar.me">Contact us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>© 2020 Sarthak Vineet Kumar</p>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="static/js/script.min.js"></script>
+</body>
+
+</html>
