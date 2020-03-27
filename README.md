@@ -1,6 +1,6 @@
 # Weather App
 link: [Weather App](https://my-flaskweather-app.herokuapp.com/)
-- this is a flask application which can tell the weather of the location after
+- This is a flask application which can tell the weather of the location after
 taking address as the input from the user.
 
 ## API used
