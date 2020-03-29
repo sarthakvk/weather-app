@@ -43,6 +43,10 @@ geolocator = Nominatim(user_agent="app.py",timeout=10)
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = "sbvfet32vob4q6vr87q6tc32b9nxu98eb213x2v"
+app.config['RECAPTCHA_USE_SSL'] = False
+app.config['RECAPTCHA_PUBLIC_KEY'] = '6Lf65OQUAAAAAP8fZ1lXKlEveRkAHfK8wixgoYpi'
+app.config['RECAPTCHA_PRIVATE_KEY'] = '6Lf65OQUAAAAAG5jbr8g9FqezcWqaFfUbSOjunsP'
+app.config['RECAPTCHA_OPTIONS']= {'theme':'white'}
 
 @app.route("/",methods = ('GET','POST'))
 def index():
