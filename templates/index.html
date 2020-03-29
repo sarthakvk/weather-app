@@ -24,13 +24,14 @@
         </div>
     </nav>
     {% for msg in get_flashed_messages() %}
-    <!-- <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
         <button type="button" class="fade close" data-dismiss = 'alert' area-lable = 'Close'>
             <span aria-hidden = "true">&times;</span>
-        </button> -->
+        </button>
         {{msg}}
+        {% endfor %}
     </div>
-    {% endfor %}
+
     <main class="page contact-us-page">
         <section class="clean-block clean-form dark">
             <div class="container">
@@ -41,9 +42,19 @@
                     {{ form.hidden_tag() }}
                     <div class="form-group">{{ form.location.label }} {{ form.location() }}</div>
                     <div class="row">
-                        <div class="col-sm-4">
+                        <div class="col-sm-2">
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-8">
+
+                            <div class="form-group">{{ form.recaptcha }}</div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-5">
+                        </div>
+                        <div class="col-sm-3">
+
                             <div class="form-group">{{ form.submit() }}</div>
                         </div>
 
