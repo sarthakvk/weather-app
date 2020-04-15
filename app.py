@@ -1,8 +1,13 @@
-from forms import myform
-from flask import Flask, render_template, flash, redirect, url_for
-from geopy.geocoders import Nominatim
-from darksky.api import DarkSky
 import requests
+from darksky.api import DarkSky
+from flask import flash
+from flask import Flask
+from flask import redirect
+from flask import render_template
+from flask import url_for
+from geopy.geocoders import Nominatim
+
+from forms import myform
 
 
 def weather_json(arr):
